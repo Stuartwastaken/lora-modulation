@@ -40,11 +40,28 @@ To allow the iOS app to communicate with your local API server, use ngrok to exp
 3. Copy the generated ngrok URL (e.g., `https://12345.ngrok.io`). This URL forwards to your local server.
 
 ### 4. Integrate with the iOS App
-Configure your iOS app to send audio data to the ngrok URL:
+The iOS application, `ContentView.swift`, is a crucial part of our system, managing the audio capture, playback, and data transmission processes. The app utilizes the SwiftUI framework and AVFoundation for handling audio functionalities.
+
+You can view and utilize the complete Swift application code from the following GitHub repository:
+[ContentView.swift](https://github.com/Stuartwastaken/SoundController/blob/recieve-audio/underwater/underwater/ContentView.swift)
+
+#### Functionality Overview:
+- **Recording Audio:** Users can start and stop audio recording through the app interface. The audio is recorded in m4a format and saved locally.
+- **Playing Audio:** Recorded audio can be played back to ensure the recording's quality and integrity.
+- **Sending Audio:** The app sends the recorded audio file to a specified server endpoint. It constructs a multipart/form-data request and handles the response asynchronously, displaying server feedback in the app interface.
+
+#### Key Swift Code Explanation:
+- The `ContentView` struct defines the user interface and state management for recording, playing, and sending audio.
+- `AVAudioRecorder` is used for recording audio, and `AVAudioPlayer` for playback.
+- Network requests are made using `URLSession` to upload audio files to a remote server via HTTP POST requests.
+- Error handling and user feedback are provided through the app's UI in response to various events such as successful transmission or errors.
+
+Ensure that the iOS app is set up to record audio and send it to this endpoint:
 ```
 <ngrok_url>/upload
 ```
-Ensure that the iOS app is set up to record audio and send it to this endpoint.
+Replace `<ngrok_url>` with your actual ngrok URL configured in previous steps.
+
 
 ### 5. Using the MATLAB Script
 Modify the `modulation.m` script to change the binary datagram:
