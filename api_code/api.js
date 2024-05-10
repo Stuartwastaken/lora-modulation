@@ -25,7 +25,7 @@ app.post("/upload", (req, res) => {
       return res.status(500).send(err.message);
     }
     const matlabDirectory = "/Users/stuart/Group-15-LoRa-Modulation/api_code/";
-    const command = `matlab -batch "cd('${matlabDirectory}'); binary_lora_converter('${savePath}'); exit;"`;
+    const command = `matlab -batch "cd('${matlabDirectory}'); binary_lora_converter(); exit;"`;
     // const command = `matlab -batch "disp('Hello from MATLAB');"`;
     // console.log("Executing command:", command);
     exec(command, (error, stdout, stderr) => {
