@@ -1,9 +1,9 @@
-function binary_lora_converter(file)
+function binary_lora_converter()
     % Temporarily turn off all warnings
     warning('off','all');
 
     % Read the signal from the .wav file
-    [signal, Fs] = audioread(file);
+    [signal, Fs] = audioread('lora_recording.m4a');
 
     % Define LoRa parameters
     BW = 125e3; % 125 kHz bandwidth
