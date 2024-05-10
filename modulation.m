@@ -3,7 +3,7 @@ clear all;
 % Define LoRa parameters
 BW = 125e3; % Bandwidth 125 kHz
 SF = 18; % Spreading Factor
-binaryData = [1 1 0 0]; % Binary data to be modulated
+binaryData = [1 1 0 0 1 1]; % Binary data to be modulated
 
 % Calculate chirp duration and samples per chirp
 chirpDuration = (2^SF) / BW;
